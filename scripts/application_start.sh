@@ -6,23 +6,28 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 # Define the commands to run for each branch
 if [ "$current_branch" = "dev" ]; then
     # Commands to run for the 'dev' branch
-    echo "Running commands for 'dev' branch..."
-    cd /var/www/html/one
-    ls
-    pwd
-    composer update
-    php artisan cache:clear
-    php artisan route:clear
+
+    # echo "Running commands for 'dev' branch..."
+    # cd /var/www/html/one
+    # ls
+    # pwd
+    # composer update
+    # php artisan cache:clear
+    # php artisan route:clear
+
     # Add your 'dev' branch-specific commands here
 elif [ "$current_branch" = "prod" ]; then
     # Commands to run for the 'prod' branch
-    echo "Running commands for 'prod' branch..."
-    cd /var/www/html/second
-    ls
-    pwd
-    composer update
-    php artisan cache:clear
-    php artisan route:clear
+
+    # echo "Running commands for 'prod' branch..."
+    # cd /var/www/html/second
+    # ls
+    # pwd
+    # composer update
+    # php artisan cache:clear
+    # php artisan route:clear
+    sudo apt-get install -y npm
+
     # Add your 'prod' branch-specific commands here
 else
     # Default commands if the branch doesn't match 'dev' or 'prod'
