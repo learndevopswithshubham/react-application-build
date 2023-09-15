@@ -1,12 +1,4 @@
 #!/bin/bash
-cd /var/www/html/wsr-rebuild-uni
-ls
-pwd
-composer update
-php artisan cache:clear
-php artisan route:clear
-
-#!/bin/bash
 
 # Determine the current Git branch
 current_branch=$(git rev-parse --abbrev-ref HEAD)
