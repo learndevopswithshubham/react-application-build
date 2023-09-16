@@ -1,6 +1,16 @@
 version: 0.0
 os: linux
 
+permissions:
+  - object: /var/www/html/one
+    owner: ubuntu
+    group: webdevs
+    mode: '0775'
+  - object: /var/www/html/second
+    owner: ubuntu
+    group: webdevs
+    mode: '0775'
+
 # Dev branch settings
 branches:
   dev:
