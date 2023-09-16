@@ -1,35 +1,45 @@
 version: 0.0
 os: linux
 
-# Use branch-specific anchors to specify destination directories
+# Dev branch settings
 branches:
   dev:
-    <<: *common_settings  # Inherit common settings
+    hooks:
+      BeforeInstall:
+        - location: scripts/before_install.sh
+          timeout: 300
+          runas: ubuntu
+      AfterInstall:
+        - location: scripts/after_install.sh
+          timeout: 300
+          runas: ubuntu
+      ApplicationStart:
+        - location: scripts/application_start.sh
+          timeout: 300
+          runas: ubuntu
     files:
       - source: /
         destination: /var/www/html/one
         overwrite: true
     fileExistsBehavior: OVERWRITE
+
+# Prod branch settings
   prod:
-    <<: *common_settings  # Inherit common settings
+    hooks:
+      BeforeInstall:
+        - location: scripts/before_install.sh
+          timeout: 300
+          runas: ubuntu
+      AfterInstall:
+        - location: scripts/after_install.sh
+          timeout: 300
+          runas: ubuntu
+      ApplicationStart:
+        - location: scripts/application_start.sh
+          timeout: 300
+          runas: ubuntu
     files:
       - source: /
         destination: /var/www/html/second
         overwrite: true
     fileExistsBehavior: OVERWRITE
-
-# Define common settings for all branches
-common_settings: &common_settings
-  hooks:
-    BeforeInstall:
-      - location: scripts/before_install.sh
-        timeout: 300
-        runas: ubuntu
-    AfterInstall:
-      - location: scripts/after_install.sh
-        timeout: 300
-        runas: ubuntu
-    ApplicationStart:
-      - location: scripts/application_start.sh
-        timeout: 300
-        runas: ubuntu
