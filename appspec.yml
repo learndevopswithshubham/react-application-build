@@ -1,16 +1,16 @@
 version: 0.0
 os: linux
 
-files: &common_files
+files:
   - source: /
     destination: /var/www/html/
     overwrite: true
     fileExistsBehavior: OVERWRITE
 
-branches:
-  dev:
-    - <<: *common_files
-      destination: /var/www/html/one
-  prod:
-    - <<: *common_files
-      destination: /var/www/html/second
+hooks:
+  BeforeInstall:
+    - location: scripts/set_destination.sh
+      timeout: 300
+      runas: root
+
+
