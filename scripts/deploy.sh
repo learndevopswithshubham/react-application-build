@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git fetch --all
+git checkout FETCH_HEAD
 # Get the current branch name
 branch=$(git symbolic-ref --short HEAD 2>/dev/null)
 
