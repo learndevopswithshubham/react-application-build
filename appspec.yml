@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /var/www/html/one
+    destination: /var/www/html/second
     overwrite: true
     fileExistsBehavior: OVERWRITE
 
