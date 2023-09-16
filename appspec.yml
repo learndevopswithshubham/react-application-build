@@ -1,14 +1,16 @@
 version: 0.0
 os: linux
 
-hooks:
-  BeforeInstall:
-    - location: scripts/deploy.sh
-      timeout: 300
-      runas: root
-
-files:
+files: &common_files
   - source: /
     destination: /var/www/html/
     overwrite: true
     fileExistsBehavior: OVERWRITE
+
+branches:
+  dev:
+    - <<: *common_files
+      destination: /var/www/html/one
+  prod:
+    - <<: *common_files
+      destination: /var/www/html/second
