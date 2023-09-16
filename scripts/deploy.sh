@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd /var/www/html/second
 # Get the name of the current branch
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
