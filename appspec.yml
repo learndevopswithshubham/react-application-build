@@ -18,6 +18,12 @@ branches:
       - source: /
         destination: /var/www/html/one
         overwrite: true
+        permissions:
+          - object: /var/www/html/one
+            pattern: '**/*'
+            owner: ubuntu
+            group: webdevs
+            mode: '0775'
     fileExistsBehavior: OVERWRITE
     
     hooks:
@@ -35,6 +41,12 @@ branches:
       - source: /
         destination: /var/www/html/second
         overwrite: true
+        permissions:
+          - object: /var/www/html/second
+            pattern: '**/*'
+            owner: ubuntu
+            group: webdevs
+            mode: '0775'
     fileExistsBehavior: OVERWRITE
 
     hooks:
