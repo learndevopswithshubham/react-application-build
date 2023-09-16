@@ -1,20 +1,14 @@
 version: 0.0
 os: linux
 
-environment:
-  DESTINATION_dev: /var/www/html/one
-  DESTINATION_prod: /var/www/html/second
-  
+hooks:
+  BeforeInstall:
+    - location: scripts/deploy.sh
+      timeout: 300
+      runas: root
+
 files:
   - source: /
-    destination: ${{ env["DESTINATION_${{ github.ref }}"] }}
+    destination: /var/www/html/
     overwrite: true
     fileExistsBehavior: OVERWRITE
-
-hooks:
-      ApplicationStart:
-        - location: scripts/prod_application_start.sh
-          timeout: 300
-          runas: ubuntu
-          when:
-            branch: "prod"
