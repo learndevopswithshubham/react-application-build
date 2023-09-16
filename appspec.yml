@@ -7,7 +7,7 @@ files:
     overwrite: true
     fileExistsBehavior: OVERWRITE
 permissions:
-  - object: /var/www/my-temp-dir
+  - object: /var/www/html/my-temp-dir
     owner: ubuntu
     group: ubuntu
 
