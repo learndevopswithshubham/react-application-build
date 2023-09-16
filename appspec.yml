@@ -11,14 +11,6 @@ branches:
     fileExistsBehavior: OVERWRITE
     
     hooks:
-      BeforeInstall:
-        - location: scripts/dev_before_install.sh
-          timeout: 300
-          runas: ubuntu
-      AfterInstall:
-        - location: scripts/dev_after_install.sh
-          timeout: 300
-          runas: ubuntu
       ApplicationStart:
         - location: scripts/dev_application_start.sh
           timeout: 300
@@ -34,14 +26,6 @@ branches:
     fileExistsBehavior: OVERWRITE
 
     hooks:
-      BeforeInstall:
-        - location: scripts/prod_before_install.sh
-          timeout: 300
-          runas: ubuntu
-      AfterInstall:
-        - location: scripts/prod_after_install.sh
-          timeout: 300
-          runas: ubuntu
       ApplicationStart:
         - location: scripts/prod_application_start.sh
           timeout: 300
