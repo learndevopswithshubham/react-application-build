@@ -12,15 +12,15 @@ branches:
     
     hooks:
       BeforeInstall:
-        - location: scripts/before_install.sh
+        - location: scripts/dev_before_install.sh
           timeout: 300
           runas: ubuntu
       AfterInstall:
-        - location: scripts/after_install.sh
+        - location: scripts/dev_after_install.sh
           timeout: 300
           runas: ubuntu
       ApplicationStart:
-        - location: scripts/application_start.sh
+        - location: scripts/dev_application_start.sh
           timeout: 300
           runas: ubuntu
     
@@ -32,18 +32,18 @@ branches:
         destination: /var/www/html/second
         overwrite: true
     fileExistsBehavior: OVERWRITE
-    
+
     hooks:
       BeforeInstall:
-        - location: scripts/before_install.sh
+        - location: scripts/prod_before_install.sh
           timeout: 300
           runas: ubuntu
       AfterInstall:
-        - location: scripts/after_install.sh
+        - location: scripts/prod_after_install.sh
           timeout: 300
           runas: ubuntu
       ApplicationStart:
-        - location: scripts/application_start.sh
+        - location: scripts/prod_application_start.sh
           timeout: 300
           runas: ubuntu
     
