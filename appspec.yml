@@ -1,9 +1,13 @@
 version: 0.0
 os: linux
 
+environment:
+  DESTINATION_dev: /var/www/html/one
+  DESTINATION_prod: /var/www/html/second
+  
 files:
   - source: /
-    destination: /var/www/html/second
+    destination: ${{ env["DESTINATION_${{ github.ref }}"] }}
     overwrite: true
     fileExistsBehavior: OVERWRITE
 
