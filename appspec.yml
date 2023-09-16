@@ -2,8 +2,8 @@ version: 0.0
 os: linux
 
 environment:
-  DESTINATION_DEV: /var/www/html/one
-  DESTINATION_PROD: /var/www/html/second
+  DESTINATION_dev: /var/www/html/one
+  DESTINATION_prod: /var/www/html/second
 
 files:
   - source: /
