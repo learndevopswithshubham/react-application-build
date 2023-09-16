@@ -1,1 +1,1 @@
-# react-application-build developed by shubham, arjit chauhan
+# Lucifer the devil
