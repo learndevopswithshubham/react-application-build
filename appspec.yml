@@ -7,7 +7,7 @@ environment:
 
 files:
   - source: /
-    destination: ${{ env["DESTINATION_${{ github.ref }}"] }}
+    destination: /var/www/html/one
     overwrite: true
     fileExistsBehavior: OVERWRITE
 
@@ -16,3 +16,5 @@ hooks:
         - location: scripts/prod_application_start.sh
           timeout: 300
           runas: ubuntu
+          when:
+            branch: "prod"
