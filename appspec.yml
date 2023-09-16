@@ -1,45 +1,21 @@
 version: 0.0
 os: linux
 
-# Dev branch settings
-branches:
-  dev:
-    hooks:
-      BeforeInstall:
-        - location: scripts/before_install.sh
-          timeout: 300
-          runas: ubuntu
-      AfterInstall:
-        - location: scripts/after_install.sh
-          timeout: 300
-          runas: ubuntu
-      ApplicationStart:
-        - location: scripts/application_start.sh
-          timeout: 300
-          runas: ubuntu
-    files:
-      - source: /
-        destination: /var/www/html/one
-        overwrite: true
+files:
+  - source: /
+    destination: /var/www/html/my-temp-dir
+    overwrite: true
     fileExistsBehavior: OVERWRITE
+permissions:
+  - object: /var/www/html/my-temp-dir
+    owner: ubuntu
+    group: ubuntu
 
-# Prod branch settings
-  prod:
-    hooks:
-      BeforeInstall:
-        - location: scripts/before_install.sh
-          timeout: 300
-          runas: ubuntu
-      AfterInstall:
-        - location: scripts/after_install.sh
-          timeout: 300
-          runas: ubuntu
-      ApplicationStart:
-        - location: scripts/application_start.sh
-          timeout: 300
-          runas: ubuntu
-    files:
-      - source: /
-        destination: /var/www/html/second
-        overwrite: true
-    fileExistsBehavior: OVERWRITE
+hooks:
+  BeforeInstall:
+    - location: scripts/set_destination.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/integrations-deploy-post.sh
+      runas: root
