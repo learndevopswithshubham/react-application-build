@@ -12,7 +12,7 @@ fi
 if [ "$DEPLOYMENT_GROUP_NAME" == "prod-deployment-shu-grp" ]
 then
     cp -R /var/www/html/my-temp-dir /var/www/html/one
-    sudo rm -rf /var/www/html/my-temp-dir/*
+
     chown -R ubuntu:ubuntu /var/www/html/one
 
 
