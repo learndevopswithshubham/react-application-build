@@ -1,19 +1,20 @@
 #!/bin/bash
 
-git fetch --all
-git checkout FETCH_HEAD
-# Get the current branch name
-branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+# Get the name of the current branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-# Set the destination based on the branch name
-if [ "$branch" = "dev" ]; then
-  destination="/var/www/html/one"
-elif [ "$branch" = "prod" ]; then
-  destination="/var/www/html/second"
+# Set the destination based on the branch
+if [ "$BRANCH" == "dev" ]; then
+    DESTINATION="/var/www/html/one"
+elif [ "$BRANCH" == "prod" ]; then
+    DESTINATION="/var/www/html/second"
 else
-  echo "Unknown branch: $branch"
-  exit 1
+    echo "Unknown branch: $BRANCH"
+    exit 1
 fi
 
-# Deploy the files to the determined destination
-rsync -av --exclude='.git/' / "$destination"
+# Copy the files to the destination
+cp -r /source/* "$DESTINATION"
+
+# Set the file permissions
+chmod -R 755 "$DESTINATION"
