@@ -1,37 +1,18 @@
 version: 0.0
 os: linux
 
-# Dev branch settings
-branches:
-  dev:
-    files:
-      - source: /
-        destination: /var/www/html/one
-        overwrite: true
-    fileExistsBehavior: OVERWRITE
-    
-    hooks:
-      ApplicationStart:
-        - location: scripts/dev_application_start.sh
-          timeout: 300
-          runas: ubuntu
-          when:
-            branch: "dev"
-    
+environment:
+  DESTINATION_DEV: /var/www/html/one
+  DESTINATION_PROD: /var/www/html/second
 
-# Prod branch settings
-  prod:
-    files:
-      - source: /
-        destination: /var/www/html/second
-        overwrite: true
+files:
+  - source: /
+    destination: ${{ env["DESTINATION_${{ github.ref }}"] }}
+    overwrite: true
     fileExistsBehavior: OVERWRITE
 
-    hooks:
+hooks:
       ApplicationStart:
         - location: scripts/prod_application_start.sh
           timeout: 300
           runas: ubuntu
-          when:
-            branch: "prod"
-    
