@@ -22,6 +22,7 @@ then
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/second
     sudo apt install -y npm
+    #
     # ls
     # pwd
     # composer update
@@ -31,4 +32,5 @@ then
 
 
     # Insert other commands that need to run...
+    #
 fi
