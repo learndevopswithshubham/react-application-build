@@ -2,7 +2,7 @@
     
 if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-dev" ]
 then
-    cp -R /var/www/html/my-temp-dir/. /var/www/html/first1
+    cp -R /var/www/html/my-temp-dir/. /var/www/html/first
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/first
     # cd /var/www/html/second
