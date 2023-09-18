@@ -3,7 +3,7 @@
 if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-dev" ]
 then
     cp -R /var/www/html/my-temp-dir/. /var/www/html/first
-    sleep 120
+    sleep 300
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/first
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -21,7 +21,7 @@ fi
 if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-uni" ]
 then
     cp -R /var/www/html/my-temp-dir/. /var/www/html/second
-    sleep 120
+    sleep 300
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/second
     sudo apt install -y npm
