@@ -6,6 +6,7 @@ then
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/first
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    sleep 120
     # cd /var/www/html/second
     # ls
     # pwd
@@ -22,6 +23,7 @@ then
     sudo rm -rf /var/www/html/my-temp-dir/*
     chown -R ubuntu:ubuntu /var/www/html/second
     sudo apt install -y npm
+    sleep 120
     #
     # ls
     # pwd
