@@ -14,6 +14,7 @@ then
     # composer update
     # php artisan cache:clear
     # php artisan route:clear
+    #
 
     # Insert other commands that need to run...
 fi
