@@ -6,6 +6,9 @@ files:
     destination: /home/my-temp-dir
     overwrite: true
     fileExistsBehavior: OVERWRITE
+    exclude:
+      - .htaccess__old
+      - .htaccess
 
 permissions:
   - object: /home/my-temp-dir
