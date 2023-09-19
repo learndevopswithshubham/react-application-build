@@ -6,6 +6,8 @@ files:
     destination: /var/www/html/my-temp-dir
     overwrite: true
     fileExistsBehavior: OVERWRITE
+    exclude:
+      - .env
 permissions:
   - object: /var/www/html/my-temp-dir
     owner: ubuntu
