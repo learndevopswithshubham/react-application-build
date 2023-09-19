@@ -18,6 +18,7 @@ then
         sudo rm -rf /home/my-temp-dir
         chown -R ubuntu:ubuntu /var/www/html/first
         cd /var/www/html/first
+        #
         # composer update
         # php artisan cache:clear
         # php artisan route:clear
