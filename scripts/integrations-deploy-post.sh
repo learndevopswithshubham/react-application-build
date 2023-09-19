@@ -4,7 +4,7 @@ if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-dev" ]
 then
     if [ -e /home/my-temp-dir/.htaccess ]
     then
-        echo "Waiting for 2 minutes..."
+        echo "Waiting for 2 minutes...."
         sleep 180
         cp -R /home/my-temp-dir/. /var/www/html/first
         sudo rm -rf /home/my-temp-dir
@@ -28,7 +28,7 @@ if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-uni" ]
 then
     if [ -e /home/my-temp-dir/.htaccess ]
     then
-        echo "Waiting for 2 minutes..."
+        echo "Waiting for 2 minutes...."
         sleep 180
         cp -R /home/my-temp-dir/. /var/www/html/second
         sudo rm -rf /home/my-temp-dir
