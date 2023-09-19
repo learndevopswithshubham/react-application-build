@@ -6,8 +6,12 @@ files:
     destination: /home/my-temp-dir
     overwrite: true
     fileExistsBehavior: OVERWRITE
-    exclude:
-      - \..*
+    patterns:
+      - .htaccess__old
+      - .htaccess
+      - .github
+    exclude: true
+    
 permissions:
   - object: /home/my-temp-dir
     owner: ubuntu
