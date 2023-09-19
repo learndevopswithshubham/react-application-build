@@ -7,10 +7,7 @@ files:
     overwrite: true
     fileExistsBehavior: OVERWRITE
     exclude:
-      - .htaccess__old
-      - .htaccess
-      - .github
-
+      - \..*
 permissions:
   - object: /home/my-temp-dir
     owner: ubuntu
