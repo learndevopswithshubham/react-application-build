@@ -6,7 +6,7 @@ files:
     destination: /home/my-temp-dir
     overwrite: true
     fileExistsBehavior: OVERWRITE
-    exclude:
+    exclude: true
       - .*
 
 permissions:
