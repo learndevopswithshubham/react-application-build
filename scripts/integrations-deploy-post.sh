@@ -2,35 +2,49 @@
     
 if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-dev" ]
 then
-    cp -R /var/www/html/my-temp-dir/. /var/www/html/first
-    sudo rm -rf /var/www/html/my-temp-dir/*
-    chown -R ubuntu:ubuntu /var/www/html/first
-    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-    
-    # cd /var/www/html/second
-    # ls
-    # pwd
-    # composer update
-    # php artisan cache:clear
-    # php artisan route:clear
-    #
-
-    # Insert other commands that need to run...
+    if [ -e /home/my-temp-dir/.htaccess ]
+    then
+        echo "Waiting for 2 minutes..."
+        sleep 180
+        cp -R /home/my-temp-dir/. /var/www/html/first
+        sudo rm -rf /home/my-temp-dir
+        chown -R ubuntu:ubuntu /var/www/html/first
+        cd /var/www/html/first
+        # composer update
+        # php artisan cache:clear
+        # php artisan route:clear
+    else
+        cp -R /home/my-temp-dir/. /var/www/html/first
+        sudo rm -rf /home/my-temp-dir
+        chown -R ubuntu:ubuntu /var/www/html/first
+        cd /var/www/html/first
+        # composer update
+        # php artisan cache:clear
+        # php artisan route:clear
+    fi
 fi
 
 if [ "$DEPLOYMENT_GROUP_NAME" == "wsr-rebuild-uni" ]
 then
-    cp -R /var/www/html/my-temp-dir/. /var/www/html/second
-    sudo rm -rf /var/www/html/my-temp-dir/*
-    chown -R ubuntu:ubuntu /var/www/html/second
-    sudo apt install -y npm
-    # ls
-    # pwd
-    # composer update
-    # php artisan cache:clear
-    # php artisan route:clear
+    if [ -e /home/my-temp-dir/.htaccess ]
+    then
+        echo "Waiting for 2 minutes..."
+        sleep 180
+        cp -R /home/my-temp-dir/. /var/www/html/second
+        sudo rm -rf /home/my-temp-dir
+        chown -R ubuntu:ubuntu /var/www/html/second
+        cd /var/www/html/second
+        # composer update
+        # php artisan cache:clear
+        # php artisan route:clear
+    else
+        cp -R /home/my-temp-dir/. /var/www/html/second
+        sudo rm -rf /home/my-temp-dir
+        chown -R ubuntu:ubuntu /var/www/html/second
+        cd /var/www/html/second
+        # composer update
+        # php artisan cache:clear
+        # php artisan route:clear
+    fi
 
-
-    # Insert other commands that need to run...
-    #
 fi
