@@ -3,12 +3,12 @@ os: linux
 
 files:
   - source: /
-    destination: /var/www/html/my-temp-dir
+    destination: /home/my-temp-dir
     overwrite: true
     fileExistsBehavior: OVERWRITE
 
 permissions:
-  - object: /var/www/html/my-temp-dir
+  - object: /home/my-temp-dir
     owner: ubuntu
     group: ubuntu
 
