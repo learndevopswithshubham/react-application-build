@@ -16,7 +16,6 @@ permissions:
 hooks:
   BeforeInstall:
     - location: scripts/set_destination.sh
-      timeout: 300
       runas: root
   AfterInstall:
     - location: scripts/integrations-deploy-post.sh
